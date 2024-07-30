@@ -49,4 +49,22 @@ router.post("/", async (req, res) => {
   }
 });
 
+router.get("/:id", (req, res) => {
+  const { id } = req.params;
+
+  Collection.findById(id)
+    .then((collection) => {
+      if (!collection) {
+        return res.status(404).json({ error: "Collection non trouvée" });
+      }
+      res.json(collection);
+    })
+    .catch((err) => {
+      console.error("Erreur serveur:", err); // Afficher l'erreur dans la console du serveur
+      res
+        .status(500)
+        .json({ error: "Erreur lors de la recherche de la collection" });
+    });
+});
+
 module.exports = router;
