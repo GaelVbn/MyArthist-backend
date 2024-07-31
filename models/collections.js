@@ -4,6 +4,16 @@ const imageSchema = mongoose.Schema({
   title: String,
   description: String,
   imageUrl: String,
+  likes: {
+    type: Number,
+    default: 0,
+  },
+  likedBy: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+    },
+  ],
 });
 
 const collectionSchema = mongoose.Schema({
@@ -11,6 +21,16 @@ const collectionSchema = mongoose.Schema({
   description: String,
   imageUrl: String,
   price: Number,
+  likes: {
+    type: Number,
+    default: 0,
+  },
+  likedBy: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+    },
+  ],
   images: [imageSchema],
 });
 
