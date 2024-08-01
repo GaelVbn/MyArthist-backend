@@ -9,6 +9,7 @@ var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
 var collectionsRouter = require("./routes/collections");
 var imagesRouter = require("./routes/image");
+var adminRouter = require("./routes/admin");
 
 var app = express();
 const cors = require("cors");
@@ -24,5 +25,6 @@ app.use("/", indexRouter);
 app.use("/users", usersRouter);
 app.use("/collections", collectionsRouter);
 app.use("/images", imagesRouter);
+app.use("/admin", adminRouter);
 
 module.exports = app;
