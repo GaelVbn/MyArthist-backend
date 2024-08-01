@@ -30,7 +30,7 @@ const loginLimiter = rateLimit({
 
 const logger = morgan("combined");
 
-router.post("/", logger, validateLogin, async (req, res) => {
+router.post("/", logger, loginLimiter, validateLogin, async (req, res) => {
   const { email, password } = req.body;
 
   try {
