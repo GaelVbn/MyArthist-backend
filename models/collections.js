@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const imageSchema = mongoose.Schema({
   title: String,
   description: String,
+  price: Number,
   imageUrl: String,
   likes: {
     type: Number,
